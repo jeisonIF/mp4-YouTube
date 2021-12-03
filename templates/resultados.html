@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %} 
+{% block title %}Resultados{% endblock %} 
+{% block seccion %}
+<style>
+  p{
+    /*color: whitesmoke;*/
+    font-weight: bolder;
+    font-size: medium;
+    
+}
+</style>
+<section class="container">
+  
+  <div class="container-fluid text-center ">
+    <h1>Resultados</h1>
+  <hr>
+  </div>
+  <div   class=" row row-cols-2 row-cols-lg-4 g-2 g-lg-3   justify-content-center mx-4"  id="video-list"
+  >
+
+  {% for video in dataSearch %}
+  <div class="col">
+    <form action="/info-descarga" method="GET">
+    <div class="card formM border-0" >
+      <input type="hidden" value="{{video['id']}}" name="idVideo">
+      <img src="{{video['thumbnail']}}" class="card-img-top" alt="..." style="border-radius: 10px;">
+      <div class="card-body">
+        <p class="card-title"> {{video['title']}} 
+          <button type="submit">
+          <i class="fa fa-download "  aria-hidden="true" ></i></button>
+        </p>
+        <!-- <p class="card-text"> {{video['description']}} </p> -->
+        
+      </div>
+    </div></form>
+  </div>
+  {% endfor %}
+  
+  
+  </div>
+</section>
+<script src="../static/js/redirect.js">
+  
+</script>
+{% endblock %}
