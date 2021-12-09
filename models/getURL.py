@@ -9,7 +9,7 @@ def getFormatosSearchText(url):
     
     with YoutubeDL(videoIfo) as ydl:
         meta = ydl.extract_info(
-            f"ytsearch2:{url}", download=False) 
+            f"ytsearch10:{url}", download=False) 
         #print('jeison')
         
     #print(type(meta))
@@ -42,8 +42,9 @@ def getFormatosSearchID(url):
             f"https://www.youtube.com/watch?v={url}", download=False) 
     #print(type(meta))
     tmThumbnails =len(meta['thumbnails'])-1
+    idVideo= meta['id']
     videoIfo={
-        'id':meta['id'],
+        'id':idVideo,
         'title':meta['title'],
         'thumbnails':meta['thumbnails'][tmThumbnails]['url']
     }
@@ -61,8 +62,7 @@ def getFormatosSearchID(url):
                     'format_id':formato['format_id'],
                     'format_ext':formato['ext'],
                     'format_tam':formato['filesize'],
-                    'format_note':formato['format_note'],
-                    
+                    'format_note':formato['format_note']
                 })
             else:
                 mp4.append({

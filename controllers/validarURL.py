@@ -22,7 +22,7 @@ def ordenarMP3(formato):
     for f in formato:
         auxF={
             'format_id':f['format_id'],
-            'format_ext':'MP3',
+            'format_ext':'mp3',
             'format_tam':convert_bytes(f['format_tam']),
             'format_icon':iconMP3
         }
@@ -39,7 +39,10 @@ def mayorMP4(formato):
                 mayor=f
         mayor['format_tam']=convert_bytes(mayor['format_tam'])
         mayor['format_icon']=iconMP4
-        mayor['format_ext']='MP4'
+        mayor['format_ext']='mp4'
+        '''mayor['download_datail']=f'videoID={mayor["id"]}'
+       ,
+                    'download_datail':f'videoID={idVideo}&key=formato["ext"]&idKey=formato["format_id"]'''
     return mayor
       
 def ordenarMP4(formato):

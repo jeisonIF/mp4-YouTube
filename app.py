@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, flash, url_for
-
+from controllers.download import  descargaMp3
 from controllers.validarURL import getFormatosSearchID, getFormatosSearchText, validarURL
 
 
@@ -13,19 +13,21 @@ def home():
 
 @app.get("/video")
 def video():
+    
     detailSearch = request.args.get("detailSearch")
+
     if  detailSearch.rfind('youtube.com/watch')>0:
         if(validarURL(detailSearch)==200):
-            print('video encontrado')
+            #print('linea 21')
             dataSearch = getFormatosSearchID(detailSearch)
-            #print(dataSearch)
             return render_template('detalleVideo.html',dataSearch=dataSearch)
+        
         else:
-            
+            flash('Este vídeo ya no está disponible ')
             print('No encontrado')
             return render_template('base/base.html')
     else:
-        print('busqueda detalle')
+        #print('busqueda detalle')
         dataSearch = getFormatosSearchText(detailSearch)
         return render_template('resultados.html',dataSearch = dataSearch)
 
@@ -35,14 +37,24 @@ def video():
 def infoVideo():
     return render_template('resultados.html')
 
+
 @app.get("/info-descarga")
 def detailVideo():
-    detailSearch = request.args.get("idVideo")
-    print(detailSearch)
-    return render_template('detalleVideo.html')    
+    detailSearch = request.args.get("detailSearch")
+    detailSearch = 'https://www.youtube.com/watch?v='+detailSearch
+    #print('jeisonnnnnnnnn')
+    #print(detailSearch)
+    dataSearch = getFormatosSearchID(detailSearch)
+    #print(dataSearch)
+    return render_template('detalleVideo.html',dataSearch=dataSearch)
 
 
-data = {}
+@app.get("/key-download")
+def succsess():
+    data= request.args.to_dict()
+  
+    return descargaMp3(data)
+
 
 '''def busqueda(id):
     detailSearch=[]
@@ -82,4 +94,8 @@ data = {}
 """ print(len(data))
 print(data[0]['id']) """
 
-app.run(debug=True)
+app.run(
+        debug=True,
+        host='localhost',
+        port=5000
+        )

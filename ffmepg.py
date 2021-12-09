@@ -1,5 +1,13 @@
 from  youtube_dl import YoutubeDL
-from ffmpeg import video 
+
+
+
+import re
+z= 'J. Balvin, Maria Becerra - Qué Más Pues? (Official Video)'
+removeSpecialChars = re.sub('[^A-Za-zÀ-ÿ\u00f1\u00d10-9-()-.-]+', ' ', z)
+#removeSpecialChars = re.sub('[^a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+', ' ', z)
+
+print (removeSpecialChars)
 
 """ iconMP3 = '<i class="fa fa-music" aria-hidden="true"></i>'
 iconMP4 = '<i class="fa fa-video-camera" aria-hidden="true"></i>'
@@ -103,4 +111,4 @@ def download(url):
                  
             
 url= 'https://www.youtube.com/watch?v=OA9Uo76iD74'
-download(url);
+#download(url);

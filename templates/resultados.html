@@ -9,7 +9,7 @@
     
 }
 </style>
-<section class="container">
+<section class="container"  id='info_video'>
   
   <div class="container-fluid text-center ">
     <h1>Resultados</h1>
@@ -20,26 +20,27 @@
 
   {% for video in dataSearch %}
   <div class="col">
+    
     <form action="/info-descarga" method="GET">
     <div class="card formM border-0" >
-      <input type="hidden" value="{{video['id']}}" name="idVideo">
+      <input type="hidden" value="{{video['id']}}" name="detailSearch" id="detailSearch" >
       <img src="{{video['thumbnail']}}" class="card-img-top" alt="..." style="border-radius: 10px;">
       <div class="card-body">
-        <p class="card-title"> {{video['title']}} 
-          <button type="submit">
+        <p class="card-title text-center"> {{video['title']}} 
+          <button class="btn btn-outline rounded-pill"
+            type="submit">
           <i class="fa fa-download "  aria-hidden="true" ></i></button>
         </p>
         <!-- <p class="card-text"> {{video['description']}} </p> -->
         
       </div>
-    </div></form>
+    </div>
+  </form>
   </div>
   {% endfor %}
-  
+    
   
   </div>
 </section>
-<script src="../static/js/redirect.js">
-  
-</script>
+
 {% endblock %}
