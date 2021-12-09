@@ -1,8 +1,10 @@
 env
 __pycache__
-video.html
+*mp3
+*mp4
 anterior.html
-mp4
-mp3
+video.html
 eliminar.py
 ffmepg.py
+jo.html
+URL.js

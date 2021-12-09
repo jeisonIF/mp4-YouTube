@@ -9,7 +9,7 @@ body {
     background: ;*/
     height: 100%;
     width: 100%;
-    background-image: url('../img/fondo2.jpg'),linear-gradient(to left, #90e0ef 0%,#ade8f4 0%, #e8e8e4 80%);
+    background-image: url('../img/fondop.jpg'),linear-gradient(to left, #90e0ef 0%,#ade8f4 0%, #e8e8e4 80%);
     background-size: cover;
     background-repeat: center center;
     background-position: center;
@@ -25,7 +25,7 @@ body {
   
     backdrop-filter: sepia(.4); */
   }
-
+.modal>*{ background-color: rgba(0,0,0,.0001) !important;}
 
 
 input:focus{

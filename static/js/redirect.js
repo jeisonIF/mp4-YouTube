@@ -47,7 +47,7 @@ function descargarVideo(data) {
         if (format_ext == "mp3") {
           clase='modal-dm'
           detalle = `
-          <div class="card mx-auto border-0" style="width: 22rem;">
+          <div class="card mx-auto border-0 dataTabla" style="width: 22rem;">
             <img class="card-img-top" src="../static/img/music.svg" alt="Card image cap">
             <div class="card-body embed-responsive-item">
               <audio  controls>
@@ -74,15 +74,16 @@ function descargarVideo(data) {
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#resultado">
           Mi descarga...
         </button>
-        <div class="modal fade" id="resultado" tabindex="-1" aria-labelledby="resultadoLabel" aria-hidden="true">
-          <div class="modal-dialog ${clase}">
-            <div class="modal-content ">
+        <div class="modal fade " id="resultado" tabindex="-1" aria-labelledby="resultadoLabel" aria-hidden="true">
+          <div class="modal-dialog ${clase} ">
+            <div class="modal-content formM">
               <div class="modal-body p-0 m-0 ">
                ${detalle}
               </div>
-              <div class="modal-footer mb-0">
+              <div class="modal-footer mb-0 dataTabla">
                 <span class="mr-4">
-                ${response.title}
+                <b>
+                ${response.title}</b>
                 </span>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
