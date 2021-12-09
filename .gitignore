@@ -1,8 +1,8 @@
 env
 __pycache__
-video
-anterior
+video.html
+anterior.html
 mp4
 mp3
-eliminar
-ffmepg
+eliminar.py
+ffmepg.py
